@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.mainWrapper {
+				display: -webkit-box;
+			}
+			.newWraber {
+				width: 50%;
+				border: solid 5px black;
+			}
+			.videoWrapper {
+			}
+		</style>
+		<script>
+			function getNewfun(e) {
+				e.target.play();
+			}
+		</script>
+	</head>
+	<body>
+		<section class="mainWrapper">
+			<section class="newWraber"></section>
+			<section class="videoWrapper" onclick="getNewfun(event);">
+				<video src="videos/ww.mp4"></video>
+			</section>
+		</section>
+	</body>
+	<script src="second.js"></script>
+</html>

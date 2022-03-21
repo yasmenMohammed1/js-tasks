@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        user-select: none;
+      }
+      #toolbar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        padding: 10px;
+        background-color: #2f2f2f;
+        color: white;
+        display: -webkit-box;
+        -webkit-box-align: center;
+      }
+      #radiusbar,
+      #savebar {
+        width: 300px;
+        padding: 5px;
+      }
+      .incredecre,
+      #radiusvalue,
+      #savebtn {
+        padding: 7px 8px;
+        box-shadow: lightblue 10px 10px 10px inset, red -10px -10px 10px inset;
+        border-radius: 50%;
+        margin-left: 10px;
+      }
+      .incredecre:hover,
+      savebtn:hover {
+        cursor: pointer;
+        box-shadow: lightblue -10px -10px 10px inset, red 10px 10px 10px inset;
+      }
+      #savebtn {
+        margin-left: 250px;
+      }
+      #colorsbar {
+        width: 300px;
+        padding: 5px;
+        margin-left: 50px;
+        display: -webkit-box;
+      }
+      .colors {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin: 5px;
+      }
+      .active {
+        border: 1px solid white;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        // canvas
+        mycanvas = document.getElementById("mycanvas");
+        mycanvas.width = window.innerWidth;
+        mycanvas.height = window.innerHeight;
+        ctx = mycanvas.getContext("2d");
+        mycanvas.addEventListener("mousemove", drawcircle);
+        drawable = false;
+        mycanvas.addEventListener("mousedown", enabledrawing);
+        mycanvas.addEventListener("mouseup", disabledrawing);
+
+        radius = 10;
+        document.getElementById("savebar").addEventListener("click", saveing) 
+          function saveing(){
+          var image = mycanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+
+          window.location.href=image;
+        }
+        
+        // incre and decre
+        incre = document.getElementById("incre");
+        decre = document.getElementById("decre");
+        radiusvalue = document.getElementById("radiusvalue");
+        incre.addEventListener("click", increaseradius);
+        decre.addEventListener("click", decreaseradius);
+
+        // colors
+        // allcolors = document.querySelectorAll(".colors");
+        // for (var i = 0; i < allcolors.length; i++) {
+        //   if (
+        //     allcolors[i].style.backgroundColor ==
+        //     localStorage.getItem("selectedcolor")
+        //   ) {
+        //     allcolors[i].classList.add("active");
+        //     ctx.fillStyle = localStorage.getItem("selectedcolor");
+        //   }
+        //   allcolors[i].addEventListener("click", changecolor);
+        // }
+        colorsbar = document.getElementById("colorsbar");
+        var colorsarr = [
+          "red",
+          "blue",
+          "orange",
+          "cyan",
+          "magenta",
+          "lightgray",
+        ];
+        for (var i = 0; i < colorsarr.length; i++) {
+          var createdcolor = document.createElement("div");
+          createdcolor.classList.add("colors");
+          createdcolor.addEventListener("click", changecolor);
+          createdcolor.style.backgroundColor = colorsarr[i];
+
+          if (colorsarr[i] == localStorage.getItem("selectedcolor")) {
+            createdcolor.classList.add("active");
+            ctx.fillStyle = colorsarr[i];
+          }
+
+          colorsbar.appendChild(createdcolor);
+        }
+      }); //end of laod
+      function changecolor(e) {
+        oldselectedcolor = document.querySelector(".active");
+        if (oldselectedcolor) oldselectedcolor.classList.remove("active");
+
+        e.target.classList.add("active");
+        ctx.fillStyle = e.target.style.backgroundColor;
+        localStorage.setItem("selectedcolor", e.target.style.backgroundColor);
+      }
+      function increaseradius() {
+        radius++;
+        checkradius(radius);
+        //if (radius > 30) radius = 30;
+        //radiusvalue.innerText = radius;
+      }
+      function decreaseradius() {
+        radius--;
+        checkradius(radius);
+        //if (radius < 10) radius = 10;
+        //radiusvalue.innerText = radius;
+      }
+      function checkradius(newvalue) {
+        if (newvalue > 30) newvalue = 30;
+        if (newvalue < 10) newvalue = 10;
+        radius = newvalue;
+        radiusvalue.innerText = radius;
+      }
+      function enabledrawing() {
+        drawable = true;
+      }
+      function disabledrawing() {
+        drawable = false;
+      }
+      function drawcircle(e) {
+        // x , y
+        if (drawable) {
+          ctx.beginPath();
+          ctx.arc(e.clientX, e.clientY, radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.closePath();
+        }         
+      }
+      let saving = document.getElementById("savebtn");
+
+    </script>
+  </head>
+  <body>
+    <div id="toolbar">
+      <div id="radiusbar">
+        <label>Radius</label>
+        <span id="radiusvalue">10</span>
+        <span id="incre" class="incredecre">+</span>
+        <span id="decre" class="incredecre">-</span>
+      </div>
+      <div id="savebar" >
+        <span id="savebtn">Save</span>
+      </div>
+      <div id="colorsbar">
+        <!-- <div class="colors" style="background-color: red"></div>
+        <div class="colors" style="background-color: orange"></div>
+        <div class="colors" style="background-color: green"></div>
+        <div class="colors" style="background-color: blue"></div>
+        <div class="colors" style="background-color: magenta"></div> -->
+      </div>
+    </div>
+    <!-- End Tool Bar-->
+    <canvas id="mycanvas" style="display: block"></canvas>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		'
+		<style>
+			section {
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				text-align: center;
+				padding: 10px;
+				float: left;
+				margin: 20px;
+			}
+			img {
+				width: 70px;
+				height: 70px;
+				margin: 10px;
+			}
+		</style>
+		<script>
+			// window.addEventListener("load", function () {
+
+			// let dragableIamges = document.querySelectorAll(".img");
+			// for (let i = 0; i < dragableIamges.length; i++) {
+			//         dragableIamges[i].addEventListener("dragstart",e=> {
+			//           e.dataTransfer.setData("text",dragableIamges.id)
+			//         })}
+			// for (const dropZone of document.querySelectorAll(".dropZone")) {
+			//   dropZone.addEventListener("dragover",e=>{
+			//     e.preventDefault();
+			//   })
+			//   dropZone.addEventListener("drop",e=>{
+			//     e.preventDefault();
+
+			//     const droppedElementId = e.dataTransfer.getData("text");
+			//     const droppedElement = document.getElementById(droppedElementId)
+
+			//     dropZone.appendChild(droppedElement)
+			//     console.log(droppedElementId);
+			//   })
+			// }
+
+			// })
+			//   dragableIamges.forEach(function(element) {
+			// element.addEventListener("dragstart", e=> {
+			//     console.log("hhh");;
+			// });
+			// });
+			window.addEventListener("load", function () {
+				allimages = document.images;
+				left = document.getElementById("left");
+				right = document.getElementById("right");
+				for (var i = 0; i < allimages.length; i++) {
+					allimages[i].addEventListener("dragstart", startdrag);
+					allimages[i].addEventListener("dragend", enddrag);
+				}
+				left.addEventListener("drop", dropped);
+				left.addEventListener("dragover", overdrag);
+				left.addEventListener("dragenter", enterdrag);
+				right.addEventListener("dragleave", leavedrag);
+			}); //end of load
+			var test;
+			function startdrag(e) {
+				//console.log(e.target.outerHTML);
+				// e.dataTranasfer
+				e.dataTransfer.setData("myimg", e.target);
+				console.log(e.target);
+				// e.preventDefault();
+			}
+			function enddrag(e) {
+				e.preventDefault();
+				e.target.style.display = "none";
+			}
+			function dropped(e) {
+				left.innerHTML += e.dataTransfer.getData("myimg");
+				console.log(e.dataTransfer.getData("myimg"));
+			}
+			function overdrag(e) {
+				e.preventDefault();
+			}
+			function leavedrag(e) {
+				e.preventDefault();
+			}
+			function enterdrag(e) {
+				e.preventDefault();
+			}
+		</script>
+	</head>
+
+	<body>
+		<section id="left" class="dropZone"></section>
+		<section id="right" class="dropZone">
+			<img src="./UP/1.jpg" draggable="true" class="img" id="jjj" />
+			<img data-price="10" src="./UP/2.jpg" class="img" />
+			<img src="./UP/3.jpg" class="img" />
+			<img src="./UP/4.jpg" class="img" />
+			<img src="./UP/5.jpg" class="img" />
+			<img src="./UP/6.jpg" class="img" />
+			<img src="./UP/7.jpg" class="img" />
+			<img src="./UP/8.jpg" class="img" />
+		</section>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+@mixin createColoumn($numberOfColumns, $screenName, $screenWidth) {
+	@media screen and (min-width: $screenWidth*1px) {
+		@if ($screenName== "") {
+			@for $i from 1 through $numberOfColumns {
+				.col-#{$i} {
+					margin: 0;
+					width: 100 / ($numberOfColumns / $i) * 1%;
+				}
+			}
+		} @else {
+			@for $i from 1 through $numberOfColumns {
+				.col-#{$screenName}-#{$i} {
+					margin: 0;
+					width: 100 / ($numberOfColumns / $i) * 1%;
+				}
+			}
+		}
+	}
+}
+@include createColoumn(12, "", 0);
+@include createColoumn(12, "sm", 567);
+@include createColoumn(12, "md", 768);
+@include createColoumn(12, "lg", 992);
+@include createColoumn(12, "xl", 1200);
+.container-fluid {
+	width: 100%;
+	margin: 0;
+}
+.container-box {
+	width: 40%;
+	margin: 0;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.height {
+	height: 100%;
+}
+.automargin {
+	display: flex;
+	justify-content: center;
+}
+
+@mixin createBorder($screenName, $screenWidth) {
+	@media screen and (min-width: $screenWidth*1px) {
+		@if ($screenName== "") {
+			@for $i from 1 through 6 {
+				.border-#{$i} {
+					margin: 0;
+					border: solid black (6 / $i) * 1px;
+				}
+			}
+		} @else {
+			@for $i from 1 through 6 {
+				.border-#{$screenName}-#{$i} {
+					margin: 0;
+					border: solid black (6 / $i) * 1px;
+				}
+			}
+		}
+	}
+}
+@include createBorder("", 0);
+@include createBorder("sm", 567);
+@include createBorder("md", 768);
+@include createBorder("lg", 992);
+@include createBorder("xl", 1200);
+
+/*
+
+-------------------------------------------------------------------
+creating padding mixin
+
+*/
+@mixin createPadding($screenName, $screenWidth) {
+	@media screen and (min-width: $screenWidth*1px) {
+		@if ($screenName== "") {
+			@for $i from 1 through 6 {
+				.paddin-#{$i} {
+					margin: 0;
+					padding: (6 / $i) px;
+				}
+			}
+		} @else {
+			@for $i from 1 through 6 {
+				.border-#{$screenName}-#{$i} {
+					margin: 0;
+					padding: (6 / $i) px;
+				}
+			}
+		}
+	}
+}
+@include createPadding("", 0);
+@include createPadding("sm", 567);
+@include createPadding("md", 768);
+@include createPadding("lg", 992);
+@include createPadding("xl", 1200);
+/*
+`
+`
+`
+`
+create order
+`
+`
+`
+`
+*/
+
+@mixin createorder($screenName, $screenWidth) {
+	@media screen and (min-width: $screenWidth*1px) {
+		@if ($screenName== "") {
+			@for $i from 1 through 6 {
+				.order-#{$i} {
+					order: #{$i};
+				}
+			}
+		} @else {
+			@for $i from 1 through 6 {
+				.order-#{$screenName}-#{$i} {
+					order: $i;
+				}
+			}
+		}
+	}
+}
+
+@include createorder("", 0);
+@include createorder("sm", 567);
+@include createorder("md", 768);
+@include createorder("lg", 992);
+@include createorder("xl", 1200);

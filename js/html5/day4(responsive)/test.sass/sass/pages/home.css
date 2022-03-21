@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.btnSm, .btnMd, .btnLg {
+  padding: 5px;
+  width: 100px;
+  border-radius: 40%;
+}
+
+.btnSm {
+  font-size: 12px;
+}
+
+.btnMd {
+  font-size: 16px;
+}
+
+.btnLg {
+  font-size: 18px;
+}
+
+.btn-worning {
+  background-color: orange;
+}
+
+.btn-primary {
+  background-color: darkblue;
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.btn-success {
+  background-color: green;
+}
+/*# sourceMappingURL=home.css.map */

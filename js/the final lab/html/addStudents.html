@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <style>
+       .addStudent{
+           display: block;
+       background-color: rgb(83, 157, 241);
+       text-align: center;
+        width: 1000px;
+    height: 400px; 
+       margin: auto;
+       border: 'solid black 10px';
+    }
+   </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="addStudent">
+    <h1>Add Students</h1>
+        <label>Name</label>
+        <input type="text" name="name" value="" required/>
+        <label>Department</label>
+        <select id="select"  onchange="selectFun(event)">
+            <option value="Select">Select</option>
+        </select>
+        <button type="submit" onclick="addStudent()">Add student</button>
+    </div>
+    <script src="../js/addStudent.js"></script>
+</body>
+</html>

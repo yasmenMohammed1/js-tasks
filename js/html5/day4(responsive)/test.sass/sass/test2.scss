@@ -1,0 +1,6 @@
+$list: facebook twitter instgram;
+@each $social in $list {
+	.#{$social} {
+		font-size: 6rem;
+	}
+}

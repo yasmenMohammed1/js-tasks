@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        .mainwrapper{
+            width: 1000px;
+            height: 600px;
+            margin: 10px auto;
+            padding: 10px;
+            display: flex;
+            border-radius: 10px;
+            justify-content: space-around;
+            box-shadow :rgb(157, 233, 71) 10px 10px 100px inset;
+            	/* box-shadow: 5px 5px 5px rgba(68,68,68,0.6); */
+
+
+        }
+        .control{
+            width: 20%;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow :rgb(157, 233, 71) 10px 10px 100px inset;
+
+        }
+        .video{
+            box-shadow :rgb(157, 233, 71) 10px 10px 100px inset;
+
+            text-align: center;
+            padding-top: 20px;
+            border-radius: 10px;
+            width: 70%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            /* display: flex; */
+        }
+        #myvideo{
+            width: 80%;
+            margin: 10px auto;
+            border-radius: 20px;
+        }
+        
+        .controlwrapper{
+            background-color: white;
+            height: 100%;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .controlwrapper div {
+            border: 3px solid blue;
+            width: 70%;
+            height: 40px;
+            border-radius: 15px;
+            line-height: 44px;
+            margin: 0px auto;
+            text-align: center
+        }
+        .controlwrapper:hover{
+            background-color: tomato;
+        }
+        .controlwrapper div:hover{
+            transform:rotate(360deg);
+            transition: 2s;
+            background-color: white;
+        }
+        .active{
+            background-color: blue;
+        }
+        .controlwrapper div.selected {
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mainwrapper" >
+        <div class="control" >
+            <section class="controlwrapper">
+                <div data-value="movie.mp4" tabindex="0" class="controlBtn">video 1</div>
+                 <div data-value="ww.mp4"  tabindex="1" class="controlBtn">video 2 </div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 3</div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 4</div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 5</div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 6</div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 7</div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 8</div>
+                 <div  data-value="ww.mp4" tabindex="0"class="controlBtn">video 9</div>
+                 <div  data-value="ww.mp4" tabindex="0" class="controlBtn">video 10</div>
+            </section>
+            
+        </div>
+        <div class="video">
+            <video src="./ww.mp4" id="myvideo" autoplay muted ondblclick="fullScreen()"/>
+        </div>
+    </div>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

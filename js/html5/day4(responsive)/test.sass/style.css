@@ -1,0 +1,32 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-image: url("/Responsive-Design1.jpg");
+	background-repeat: repeat;
+}
+.footer {
+	margin: auto;
+	border: 2px white solid;
+	border-top-left-radius: 40%;
+	border-top-right-radius: 40%;
+	padding: 1%;
+	justify-content: center;
+	background-color: #5372a9;
+}
+.mainWrapper {
+	justify-content: space-between;
+}
+
+.nav-item {
+	color: black;
+	border-bottom-right-radius: 30%;
+	border-top-left-radius: 30%;
+	background-color: #c2cfe2;
+	border: 3px solid #ffffff;
+}
+div a {
+	text-decoration: none;
+	color: black;
+}

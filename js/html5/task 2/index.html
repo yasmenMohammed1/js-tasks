@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainwrapper{
+            width: 70%;
+            height: 300px;
+            box-shadow: rgb(206 218 50) 10px 10px 100px inset;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 10px auto;
+
+        }
+        #top{
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 90%;
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #bot{
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 90%;
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            float: left;
+
+        }
+        img{
+            /* width: 100px;
+            height: 100px; */
+            width: 10%;
+            height: 70%;
+            border: 3px solid blue;
+            transition: 2s;
+        }
+        img:hover{
+
+            /* transition: 2s; */
+            transform: scale(2) rotate(360deg);
+
+            /* transform: rotate(360deg); */
+
+        }
+    </style>
+</head>
+<body>
+    <section class="mainwrapper">
+        <section id="top" ondrop="drop(event)" ondragover ="allowDrop(event)">
+            <img src="UP/1.jpg" id="drag1" alt="" ondragstart="drag(event)">
+            <img src="UP/2.jpg" id="drag2" alt="" ondragstart="drag(event)">
+            <img src="UP/3.jpg" id="drag3" alt="" ondragstart="drag(event)">
+            <img src="UP/4.jpg" id="drag4" alt="" ondragstart="drag(event)">
+            <img src="UP/5.jpg" id="drag5" alt="" ondragstart="drag(event)">
+            <img src="UP/6.jpg" id="drag6" alt="" ondragstart="drag(event)">
+            <img src="UP/7.jpg" id="drag7" alt="" ondragstart="drag(event)">
+            <img src="UP/8.jpg" id="drag8" alt="" ondragstart="drag(event)">
+
+        </section>
+        <section id="bot" ondrop="drop(event)" ondragover="allowDrop(event)"></section>
+    </section>
+    <script>
+        // function allowDrop(ev) {
+        //   ev.preventDefault();
+        // }
+        
+        // function drag(ev) {
+        //   ev.dataTransfer.setData("text", ev.target.id);
+        // }
+        
+        // function drop(ev) {
+        //   ev.preventDefault();
+        //   var data = ev.dataTransfer.getData("text");
+        //   ev.target.appendChild(document.getElementById(data));
+        // }
+        </script>
+    <script src="main.js"></script>
+</body>
+</html>

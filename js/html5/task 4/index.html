@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: yellow;
+            width: 500px;
+            height: 150px;
+            border: 1px solid black;
+            border-radius: 30px 0 30px 0;
+            display: flex;
+            align-items: center;
+            align-content: space-around;
+        }
+        .one{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: rgb(236, 83, 56) 10px 10px 50px inset;
+            margin: 10px auto;
+            width: 40%;
+            padding: 10px;
+
+        }
+        .two{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: rgb(56, 236, 65) 10px 10px 50px inset;
+            margin: 10px auto;
+            width: 40%;
+            padding: 10px;
+
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <div class="one">
+            <p>Addition</p>
+    <form
+      method="get"
+      action="#"
+      oninput="result.value=parseInt(firstnumber.value)+parseInt(secondnumber.value);"
+    >
+      <input
+        type="number"
+        min="1"
+        max="10"
+        value="0"
+        step="1"
+        name="firstnumber"
+      />
+      +
+      <input
+        type="number"
+        min="1"
+        max="10"
+        value="0"
+        step="1"
+        name="secondnumber"
+      />
+      =
+      <output for="firstnumber secondnumber" name="result" />
+      </form>
+    </div>
+
+<!-- minus -->
+    <div class="two">
+    <p>Mltiplcation</p>
+
+    <form 
+        method="get"
+        action="#"
+        oninput="result.value=parseInt(firstnumber.value)*parseInt(secondnumber.value);"
+        >
+        <input
+            type="number"
+            min="1"
+            max="10"
+            value="0"
+            step="1"
+            name="firstnumber"
+        />
+        *
+        <input
+            type="number"
+            min="1"
+            max="10"
+            value="0"
+            step="1"
+            name="secondnumber"
+        />
+        =
+        <output for="firstnumber secondnumber" name="result" />
+    </form>
+    </div>
+</div>
+
+    
+    
+  </body>
+</html>

@@ -1,0 +1,23 @@
+/* .bgi {
+	background-image: url("/imges/2.png");
+	background-size: cover;
+} */
+
+#regesterBtn:hover {
+	background-color: rgba(255, 166, 0, 0.747);
+}
+
+#navbarNav {
+	background-image: linear-gradient(purple, rgb(27, 5, 48));
+}
+.bgi:hover > nav {
+	opacity: 1 !important;
+}
+.bgi > nav {
+	opacity: 0;
+}
+
+.active {
+	background-color: red;
+	color: rgba(255, 166, 0, 0.747);
+}

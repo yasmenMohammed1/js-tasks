@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+  
+</head>
+<body>
+    <h1>Add Department</h1>
+        <label>Department ID</label> 
+        <input type="text" name="id" value="" required/>
+        <span id="errorOfemty" style="display: none; color: rgb(111, 134, 235);" > fill the ID</span>
+        <span id="errorOfReapeted" style="display: none; color: rgb(111, 134, 235);" > The ID is Repeated</span>
+        <label>Department Name</label>
+        <input type="text" name="name" value="" required/>
+        <span id="errorOfEmpty" style="display: none; color: rgb(111, 134, 235);"> fill INPUT plz</span>
+
+        <button type="submit" onclick="addDepartment()">Add Department</button>
+
+        <script src="../js/addDepartment.js"></script>
+</body>
+</html>

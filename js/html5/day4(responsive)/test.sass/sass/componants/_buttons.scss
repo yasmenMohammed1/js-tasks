@@ -1,0 +1,27 @@
+.btnSm {
+	@extend %btnPlaceHolder;
+
+	font-size: $btnSmFontSize;
+}
+.btnMd {
+	@extend %btnPlaceHolder;
+	font-size: $btnMdFontSize;
+}
+.btnLg {
+	@extend %btnPlaceHolder;
+	font-size: $btnLgFontSize;
+}
+
+.btn-worning {
+	background-color: $btnWorning;
+}
+.btn-primary {
+	background-color: $btnPrimary;
+}
+.btn-danger {
+	background-color: $btnDanger;
+}
+
+.btn-success {
+	background-color: $btnSuccess;
+}
